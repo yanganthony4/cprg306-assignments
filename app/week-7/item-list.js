@@ -1,13 +1,11 @@
 'use client';
 import Item from "./item";
-import React from 'react';
-import { useState } from 'react';
-import Items from "./items.json";
+import React, { useState } from 'react';
 
-const ItemList = () => {
+const ItemList = ({ items }) => {
     const [sortBy, setSortBy] = useState("name");
 
-    let sortedItems = [...Items];
+    let sortedItems = [...items];
     
     if(sortBy == "name") {
         sortedItems.sort((a, b) => {
@@ -53,7 +51,7 @@ const ItemList = () => {
 
     return (
         <div>
-            <div className="flex ml-2 space-x-4">
+            <div className="flex space-x-4 mt-5 ml-2">
                 <div>
                     <p className="text-lg font-bold text-white mb-2">Sort By:</p>
                     <div className="flex items-center space-x-4 mb-2">
